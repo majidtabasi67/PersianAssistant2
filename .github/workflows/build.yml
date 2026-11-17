@@ -16,18 +16,22 @@ jobs:
 
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: '17'
 
+      - name: Install Gradle 8.9
+        run: |
+          curl -fL https://services.gradle.org/distributions/gradle-8.9-bin.zip -o /tmp/gradle.zip
+          unzip -q /tmp/gradle.zip -d /tmp
+
       - name: Build APK
         run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          /tmp/gradle-8.9/bin/gradle assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
