@@ -10,7 +10,7 @@ android {
     defaultConfig {
         applicationId = "ir.persianassistant"
         minSdk = 23
-        targetSdk = 35
+        targetSdk = 32
         versionCode = 1
         versionName = "1.0"
     }
