@@ -5,8 +5,10 @@ on:
   workflow_dispatch:
 
 permissions:
+  
+permissions:
   contents: write
-
+  workflows: write
 jobs:
   extract:
     runs-on: ubuntu-latest
