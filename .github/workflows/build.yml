@@ -29,11 +29,12 @@ jobs:
           curl -fL https://services.gradle.org/distributions/gradle-8.9-bin.zip -o /tmp/gradle.zip
           unzip -q /tmp/gradle.zip -d /tmp
 
-      - name: Build APK
+      - name: Build APK with detailed error report
         run: |
-          /tmp/gradle-8.9/bin/gradle assembleDebug
+          /tmp/gradle-8.9/bin/gradle --stacktrace assembleDebug
 
       - name: Upload APK
+        if: success()
         uses: actions/upload-artifact@v4
         with:
           name: PersianAssistant-APK
