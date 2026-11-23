@@ -3,7 +3,7 @@ name: Build PersianAssistant APK
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [ main, parshian-v1.2-review ]
 
 permissions:
   contents: read
